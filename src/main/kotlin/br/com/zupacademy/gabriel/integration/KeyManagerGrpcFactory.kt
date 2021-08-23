@@ -7,7 +7,7 @@ import io.micronaut.grpc.annotation.GrpcChannel
 import javax.inject.Singleton
 
 @Factory
-class ClientGrpc {
+class KeyManagerGrpcFactory {
 
     @Singleton
     fun registerPixKeyClientGrpc(@GrpcChannel("pix") channel: ManagedChannel): KeyManagerRegisterServiceGrpc.KeyManagerRegisterServiceBlockingStub {

@@ -1,6 +1,7 @@
 package br.com.zupacademy.gabriel.register
 
 import br.com.zupacademy.KeyManagerRegisterServiceGrpc
+import br.com.zupacademy.gabriel.shared.exceptionhandler.ApplicationExceptionHandler
 import io.micronaut.discovery.ServiceInstance
 import io.micronaut.http.HttpRequest
 import io.micronaut.http.HttpResponse
@@ -23,7 +24,7 @@ class RegisterKeyController(
 ) {
 
     @Post
-    fun register(@PathVariable clientId: String, @Body @Valid registerKeyRequest: RegisterKeyRequest): HttpResponse<Any> {
+    fun register(@PathVariable clientId: String, @Body @Valid registerKeyRequest: RegisterKeyRequest): HttpResponse<RegisterKeyResponse> {
         val grpcRequest = registerKeyRequest.toPixKeyRegisterRequest(clientId)
         val grpcResponse = clientGrpc.register(grpcRequest)
 

@@ -8,6 +8,7 @@ import br.com.zupacademy.gabriel.shared.validations.ValidPixKey
 import io.micronaut.core.annotation.Introspected
 import javax.validation.constraints.NotBlank
 import javax.validation.constraints.NotNull
+import javax.validation.constraints.Size
 
 
 @ValidPixKey
@@ -15,6 +16,7 @@ import javax.validation.constraints.NotNull
 data class RegisterKeyRequest(
     @field:NotNull
     val keyType: KeyType,
+    @field:Size(max = 72)
     val keyValue: String?,
     @field:NotNull
     val accountType: Account
