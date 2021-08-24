@@ -1,6 +1,5 @@
 package br.com.zupacademy.gabriel.register
 
-
 import br.com.zupacademy.AccountType
 import br.com.zupacademy.KeyTypeRequest
 import br.com.zupacademy.PixKeyRegistrationRequest
@@ -9,7 +8,6 @@ import io.micronaut.core.annotation.Introspected
 import javax.validation.constraints.NotBlank
 import javax.validation.constraints.NotNull
 import javax.validation.constraints.Size
-
 
 @ValidPixKey
 @Introspected

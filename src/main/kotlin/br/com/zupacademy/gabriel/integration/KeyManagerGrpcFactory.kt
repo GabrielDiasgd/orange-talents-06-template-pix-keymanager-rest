@@ -1,5 +1,6 @@
 package br.com.zupacademy.gabriel.integration
 
+import br.com.zupacademy.KeyManagerDeleteServiceGrpc
 import br.com.zupacademy.KeyManagerRegisterServiceGrpc
 import io.grpc.ManagedChannel
 import io.micronaut.context.annotation.Factory
@@ -10,7 +11,10 @@ import javax.inject.Singleton
 class KeyManagerGrpcFactory {
 
     @Singleton
-    fun registerPixKeyClientGrpc(@GrpcChannel("pix") channel: ManagedChannel): KeyManagerRegisterServiceGrpc.KeyManagerRegisterServiceBlockingStub {
+    fun registerPixKey(@GrpcChannel("pix") channel: ManagedChannel): KeyManagerRegisterServiceGrpc.KeyManagerRegisterServiceBlockingStub {
         return KeyManagerRegisterServiceGrpc.newBlockingStub(channel)
     }
+
+    @Singleton
+    fun deletePixKey(@GrpcChannel("pix") channel: ManagedChannel) = KeyManagerDeleteServiceGrpc.newBlockingStub(channel)
 }

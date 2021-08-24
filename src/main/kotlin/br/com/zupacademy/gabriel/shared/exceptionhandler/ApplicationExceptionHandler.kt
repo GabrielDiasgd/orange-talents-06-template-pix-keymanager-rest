@@ -2,6 +2,7 @@ package br.com.zupacademy.gabriel.shared.exceptionhandler
 
 import io.grpc.Status
 import io.grpc.StatusRuntimeException
+import io.micronaut.context.MessageSource
 import io.micronaut.http.HttpRequest
 import io.micronaut.http.HttpResponse
 import io.micronaut.http.HttpStatus
@@ -25,7 +26,7 @@ class ApplicationExceptionHandler() :  ExceptionHandler<StatusRuntimeException, 
                     HttpStatus.INTERNAL_SERVER_ERROR
                 }
             }
-        logger.info("Passando aqui $httpStatus")
+        logger.info("Status: $httpStatus, Causa: ${exception.status.code.name}, Mensagem: ${exception.status.description.toString()}")
         return HttpResponse.status<Any>(httpStatus)
             .body(ErrorMessage(exception.status.code.name, exception.status.description.toString()))
     }
