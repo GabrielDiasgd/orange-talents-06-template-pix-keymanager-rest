@@ -15,12 +15,12 @@ class DeleteKeyController(@Inject val clientGrpc: KeyManagerDeleteServiceGrpc.Ke
 
     @Delete("/{pixId}")
     fun delete (@PathVariable clientId: String, @PathVariable pixId: String): HttpResponse<Any> {
-        clientGrpc.delete(
+       clientGrpc.delete(
             PixKeyDeleteRequest.newBuilder()
-            .setPixId(pixId)
-            .setClientId(clientId)
-            .build())
-
+                .setPixId(pixId)
+                .setClientId(clientId)
+                .build()
+        )
         return HttpResponse.ok()
     }
 }

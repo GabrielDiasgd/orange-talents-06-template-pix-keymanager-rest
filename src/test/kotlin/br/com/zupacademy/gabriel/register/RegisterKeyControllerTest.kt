@@ -21,7 +21,6 @@ import org.mockito.Mockito
 import java.util.*
 import javax.inject.Inject
 import javax.inject.Singleton
-import kotlin.time.nanoseconds
 
 @MicronautTest
 internal class RegisterKeyControllerTest() {
@@ -85,7 +84,7 @@ internal class RegisterKeyControllerTest() {
 
 @Factory
 @Replaces(factory = KeyManagerGrpcFactory::class)
-internal class MockitoStubFactory() {
+internal class RegisterStubFactory() {
     @Singleton
-    internal fun stubMock() = Mockito.mock(KeyManagerRegisterServiceGrpc.KeyManagerRegisterServiceBlockingStub::class.java)
+    internal fun registerMock() = Mockito.mock(KeyManagerRegisterServiceGrpc.KeyManagerRegisterServiceBlockingStub::class.java)
 }
