@@ -17,7 +17,7 @@ class FindKeyController(@Inject val clientGrpc: KeyManagerFindServiceGrpc.KeyMan
     private val logger = LoggerFactory.getLogger(this::class.java)
 
     @Get("{pixId}")
-    fun findKey(@PathVariable clientId: String, @PathVariable pixId: String): HttpResponse<FindKeyResponse> {
+    fun findKey(@PathVariable clientId: String, @PathVariable pixId: String): HttpResponse<KeyDetailsResponse> {
         logger.info("Find key pix clientId: $clientId, pixId: $pixId")
         val request = FindPixKeyRequest.newBuilder()
             .setPixId(FindPixKeyRequest.FilterByPixId.newBuilder()
@@ -25,7 +25,6 @@ class FindKeyController(@Inject val clientGrpc: KeyManagerFindServiceGrpc.KeyMan
                 .setPixId(pixId)).build()
 
         val response = clientGrpc.findKey(request)
-
-        return HttpResponse.ok(FindKeyResponse(response))
+        return HttpResponse.ok(KeyDetailsResponse(response))
     }
 }

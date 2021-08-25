@@ -6,7 +6,7 @@ import br.com.zupacademy.FindPixKeyResponse
 import java.time.LocalDateTime
 import java.time.ZoneOffset
 
-data class FindKeyResponse(
+data class KeyDetailsResponse(
     val pixId: String,
     val clientId: String,
     val keyType: String,
