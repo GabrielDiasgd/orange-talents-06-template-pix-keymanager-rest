@@ -2,6 +2,7 @@ package br.com.zupacademy.gabriel.integration
 
 import br.com.zupacademy.KeyManagerDeleteServiceGrpc
 import br.com.zupacademy.KeyManagerFindServiceGrpc
+import br.com.zupacademy.KeyManagerListServiceGrpc
 import br.com.zupacademy.KeyManagerRegisterServiceGrpc
 import io.grpc.ManagedChannel
 import io.micronaut.context.annotation.Factory
@@ -20,5 +21,6 @@ class KeyManagerGrpcFactory {
     @Singleton
     fun findKey(@GrpcChannel("pix") channel: ManagedChannel) = KeyManagerFindServiceGrpc.newBlockingStub(channel)
 
-
+    @Singleton
+    fun listKey(@GrpcChannel("pix") channel: ManagedChannel) = KeyManagerListServiceGrpc.newBlockingStub(channel)
 }
