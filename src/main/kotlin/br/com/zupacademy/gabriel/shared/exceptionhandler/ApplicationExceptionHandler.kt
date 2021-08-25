@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory
 import javax.inject.Singleton
 
 @Singleton
-class ApplicationExceptionHandler() :  ExceptionHandler<StatusRuntimeException, HttpResponse<Any>> {
+class ApplicationExceptionHandler() : ExceptionHandler<StatusRuntimeException, HttpResponse<Any>> {
 
     private val logger = LoggerFactory.getLogger(this::class.java)
 
