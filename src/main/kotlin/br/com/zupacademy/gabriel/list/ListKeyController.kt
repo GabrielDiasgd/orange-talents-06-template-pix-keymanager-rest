@@ -16,7 +16,7 @@ class ListKeyController(@Inject val clientGrpc: KeyManagerListServiceGrpc.KeyMan
         val request = ListPixKeyRequest.newBuilder().setClientId(clientId).build()
         val response = clientGrpc.listKeys(request)
 
-        val listKeyDetails = response.listPixKeyList.map { ListKeyDetailsResponse(it)}
+        val listKeyDetails: List<ListKeyDetailsResponse> = response.listPixKeyList.map { ListKeyDetailsResponse(it)}
         return HttpResponse.ok(listKeyDetails)
     }
 }
