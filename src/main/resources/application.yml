@@ -3,13 +3,13 @@ micronaut:
     name: gabriel
 grpc:
   client:
-    plaintext: true
-    max-retry-attempts: 10
+    plaintext: ${GRPC_CLIENT_PLAINTEXT:true}
+    max-retry-attempts: ${GRPC_CLIENT_RETRY_ATTEMPTS:10}
   channels:
     pix:
-      address: 'localhost:50051'
-      plaintext: true
-      max-retry-attempts: 10
+      address: ${KEY_MANAGER_HOST:`localhost:50051`}
+      plaintext: ${GRPC_CLIENT_PIX_PLAINTEXT:true}
+      max-retry-attempts: ${GRPC_CLIENT_PIX_RETRY_ATTEMPTS:10}
 
 jackson:
   serialization:
