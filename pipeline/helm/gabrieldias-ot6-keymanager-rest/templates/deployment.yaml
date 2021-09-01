@@ -47,7 +47,7 @@ spec:
               port: http
           envFrom:
             - configMapRef:
-                name: orange-talents-06-template-pix-keymanager-rest-configmap
+                name: gabrieldias-ot6-keymanager-rest-configmap
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
