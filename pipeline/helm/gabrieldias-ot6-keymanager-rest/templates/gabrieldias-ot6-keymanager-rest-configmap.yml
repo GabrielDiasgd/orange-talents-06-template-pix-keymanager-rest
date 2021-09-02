@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: keymanager-rest-configmap
 data:
-  KEY_MANAGER_HOST: `localhost:50051`
+  KEY_MANAGER_HOST: localhost:50051
