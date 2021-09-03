@@ -37,14 +37,6 @@ spec:
             - name: http
               containerPort: 8080
               protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /health/liveness
-              port: 8080
-          readinessProbe:
-            httpGet:
-              path: /health/readiness
-              port: 8080
           envFrom:
             - configMapRef:
                 name: gabrieldias-ot6-keymanager-rest-configmap
